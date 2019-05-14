@@ -70,8 +70,8 @@ define rbenv::build (
 ) {
   include rbenv
 
-  validate_bool($global)
-  validate_bool($keep)
+  validate_legacy(Boolean, 'validate_bool', $global)
+  validate_legacy(Boolean, 'validate_bool', $keep)
 
   $environment_for_build = concat(["RBENV_ROOT=${install_dir}"], $env)
 
